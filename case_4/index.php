@@ -46,3 +46,9 @@ foreach($students2 as $name => $grade) {
 }
 
 echo "Average score of group 2 is ", $group2->showGrades(), "%<br>";
+
+$studentGroup2 = $group2->moveStudent('Pious');
+$group1->addStudent($studentGroup2);
+
+echo "Average score of group 1 is ", $group1->showGrades(), "%<br>";
+echo "Average score of group 2 is ", $group2->showGrades(), "%<br>";

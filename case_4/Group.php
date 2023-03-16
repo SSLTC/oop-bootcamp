@@ -9,11 +9,20 @@ class Group
         array_push($this->students, $student);
     }
 
+    public function moveStudent(string $name): Student 
+    {
+        foreach ($this->students as $index => $student) {
+            if ($student->getName() === $name) {
+                return array_splice($this->students, $index, 1)[0];
+            }
+        }
+    }
+
     public function showGrades() 
     {
         $grades = array();
 
-        foreach($this->students as $student) {
+        foreach ($this->students as $student) {
             $grade = match ($student->getGrade()) {
                 'A' => 80,
                 'B' => 60,
@@ -27,8 +36,6 @@ class Group
 }
 
 /*
-Add a function to move a student from one group to another.
-
 Show the average score of both groups. 
 Move the top student from one group with the lowest scoring student from another. 
 Show the averages again - how were these affected?
